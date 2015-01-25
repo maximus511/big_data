@@ -1,0 +1,22 @@
+DROP TABLE ratings;
+DROP TABLE movies;
+DROP TABLE users;
+
+
+CREATE TABLE movies (m_id INT, title STRING, genre STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY'#' ;
+
+LOAD DATA local INPATH '/tmp/Fall2014_HW-3_Hive/movies_new.dat' INTO TABLE movies;
+
+
+CREATE TABLE ratings (user_id INT, movie_id INT, rating_id INT, timestamp STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY'#' ;
+
+LOAD DATA local INPATH '/tmp/Fall2014_HW-3_Hive/ratings_new.dat' INTO TABLE ratings;
+
+CREATE TABLE users (u_id INT, g_id STRING,a_id INT, o_id STRING,t_id STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY'#' ;
+
+LOAD DATA local INPATH '/tmp/Fall2014_HW-3_Hive/users_new.dat' INTO TABLE users;
+
+select movies.m_id , movies.title ,movies.genre , avg(ratings.rating_id) as Avg from movies join ratings on (movies.m_id = ratings.movie_id) join users on (users.u_id = ratings.user_id) where users.g_id = 'M' and movies.genre like '%Action%' or movies.genre like '%Drama%' group by movies.m_id , movies.title , movies.genre  having Avg > 4.4 and Avg < 4.9; 

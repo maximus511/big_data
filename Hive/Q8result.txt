@@ -1,0 +1,8 @@
+MapReduce Jobs Launched:
+Job 0: Map: 5   Cumulative CPU: 10.35 sec   HDFS Read: 336114 HDFS Write: 327913 SUCCESS
+Job 1: Map: 1   Cumulative CPU: 1.2 sec   HDFS Read: 107937 HDFS Write: 107190 SUCCESS
+Job 2: Map: 1   Cumulative CPU: 1.3 sec   HDFS Read: 109713 HDFS Write: 108966 SUCCESS
+Job 3: Map: 1   Cumulative CPU: 1.34 sec   HDFS Read: 111619 HDFS Write: 110872 SUCCESS
+Total MapReduce CPU Time Spent: 14 seconds 190 msec
+OK
+Time taken: 59.926 seconds

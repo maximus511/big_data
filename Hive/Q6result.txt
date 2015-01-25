@@ -1,0 +1,25 @@
+53      Lamerica (1994) Drama   4.75
+260     Star Wars: Episode IV - A New Hope (1977)       Action|Adventure|Fantasy|Sci-Fi 4.495307167235495
+318     Shawshank Redemption, The (1994)        Drama   4.554557700942973
+439     Dangerous Game (1993)   Drama   4.5
+527     Schindler's List (1993) Drama|War       4.510416666666667
+557     Mamma Roma (1962)       Drama   4.5
+578     Hour of the Pig, The (1993)     Drama|Mystery   4.5
+668     Pather Panchali (1955)  Drama   4.404255319148936
+670     World of Apu, The (Apur Sansar) (1959)  Drama   4.410714285714286
+858     Godfather, The (1972)   Action|Crime|Drama      4.524966261808367
+912     Casablanca (1942)       Drama|Romance|War       4.412822049131217
+1178    Paths of Glory (1957)   Drama|War       4.473913043478261
+1198    Raiders of the Lost Ark (1981)  Action|Adventure        4.520597322348094
+1207    To Kill a Mockingbird (1962)    Drama   4.425646551724138
+1795    Callej?n de los milagros, El (1995)     Drama   4.5
+2019    Seven Samurai (The Magnificent Seven) (Shichinin no samurai) (1954)     Action|Drama    4.560509554140127
+2309    Inheritors, The (Die Siebtelbauern) (1998)      Drama   4.5
+2480    Dry Cleaning (Nettoyage ? sec) (1997)   Drama   4.5
+2503    Apple, The (Sib) (1998) Drama   4.666666666666667
+2905    Sanjuro (1962)  Action|Adventure        4.639344262295082
+3030    Yojimbo (1961)  Comedy|Drama|Western    4.404651162790698
+3245    I Am Cuba (Soy Cuba/Ya Kuba) (1964)     Drama   4.8
+3517    Bells, The (1926)       Crime|Drama     4.5
+3888    Skipped Parts (2000)    Drama|Romance   4.5
+Time taken: 33.259 seconds, Fetched: 24 row(s)

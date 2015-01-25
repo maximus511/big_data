@@ -1,0 +1,13 @@
+DROP TABLE ratings;
+DROP TABLE movies;
+CREATE TABLE movies (m_id INT, title STRING, genre STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY'#' ;
+LOAD DATA local INPATH '/tmp/Fall2014_HW-3_Hive/movies_new.dat' INTO TABLE movies;
+CREATE TABLE ratings (user_id INT, movie_id INT, rating_id INT, timestamp STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY'#' ;
+LOAD DATA local INPATH '/tmp/Fall2014_HW-3_Hive/ratings_new.dat' INTO TABLE ratings;
+SELECT movie_id , avg(rating_id) as Avg from ratings r join  movies m on (r.movie_id = m.m_id) 
+where m.genre like '%Action%'
+GROUP BY r.movie_id
+ORDER BY Avg
+DESC LIMIT 10;

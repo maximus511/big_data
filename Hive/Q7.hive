@@ -1,0 +1,13 @@
+DROP TABLE PartitionTable;
+
+CREATE TABLE PartitionTable (movieid STRING, title STRING, genre STRING) 
+partitioned by (year_partition int)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '#';
+
+LOAD DATA local INPATH '/tmp/HW_3_Data/partition/2009' INTO TABLE PartitionTable Partition (year_partition = '2009');
+LOAD DATA local INPATH '/tmp/HW_3_Data/partition/2010' INTO TABLE PartitionTable Partition (year_partition = '2010');
+LOAD DATA local INPATH '/tmp/HW_3_Data/partition/2011' INTO TABLE PartitionTable Partition (year_partition = '2011');
+
+describe partitiontable;
+
+select * from partitiontable where year_partition = '2009';

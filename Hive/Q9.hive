@@ -1,0 +1,7 @@
+DROP TABLE MovieDetails;
+ADD JAR /home/004/r/rk/rkn130030/BigData/HIVE_UDF/HiveGenreFormat.jar;
+CREATE TEMPORARY FUNCTION FORMAT_GENRE AS 'HiveGenreFormat';
+CREATE TABLE MovieDetails (movie_id INT, title STRING, genre STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY'#' ;
+LOAD DATA local INPATH '/tmp/Fall2014_HW-3_Hive/movies_new.dat' INTO TABLE MovieDetails;
+SELECT title, FORMAT_GENRE(genre) FROM MovieDetails;

@@ -1,0 +1,16 @@
+Movie = load '/Fall2014_HW-3-Pig/movies_new.dat' using PigStorage('#') as (MOVIEID:int, TITLE:chararray, GENRES:chararray);
+Rating = load '/Fall2014_HW-3-Pig/ratings_new.dat' using PigStorage('#') as (USERID:int, MOVIEID:int, RATINGS:double, TIMESTAMP:int);  
+User = load '/Fall2014_HW-3-Pig/users_new.dat' using PigStorage('#') as (USERID:int, GENDER:chararray, AGE:int, OCCUPATION:chararray, ZIPCODE:chararray);
+A = FILTER Movie BY GENRES MATCHES '.*Action.*' AND GENRES MATCHES '.*War.*';    
+B = JOIN A BY MOVIEID , Rating BY MOVIEID; 
+C = FOREACH B GENERATE A::MOVIEID , Rating::RATINGS , Rating::USERID;    
+D = GROUP C BY MOVIEID;         
+E = foreach D generate group, AVG(C.RATINGS) as avgRate, C.USERID;          
+F = GROUP E ALL;  
+G = FOREACH F GENERATE MAX(E.avgRate);    
+H = FILTER E BY avgRate == G.$0;  
+I = FOREACH H GENERATE group, avgRate , flatten($2);     
+J =  FILTER User BY GENDER MATCHES 'F' AND AGE >20 AND AGE <30 AND ZIPCODE MATCHES '1.*';  
+K = JOIN I BY USERID , J BY USERID;         
+Output =  FOREACH K GENERATE J::USERID;   
+DUMP Output;

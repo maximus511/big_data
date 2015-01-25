@@ -1,0 +1,16 @@
+cqlsh csac0
+
+use rkn130030
+
+CREATE TABLE IF NOT EXISTS movies (movie_id varchar, title varchar, genre varchar, PRIMARY KEY (movie_id));
+
+copy movies(movie_id,title,genre) from '/tmp/Fall2014_HW-3_Hive/movies_new.dat' WITH delimiter='#';
+
+insert into movies(movie_id,title,genre) values ('1162','New Comedy Movie','Comedy');
+
+select * from movies where movie_id = '1150';
+
+TRUNCATE movies;
+
+DROP TABLE movies;
+

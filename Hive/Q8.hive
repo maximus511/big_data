@@ -1,0 +1,18 @@
+CREATE TABLE 2009_MOVIES ( MOVIEID STRING, TITLE STRING, GENRES STRING);
+CREATE TABLE 2010_MOVIES ( MOVIEID STRING, TITLE STRING, GENRES STRING);
+CREATE TABLE 2011_MOVIES ( MOVIEID STRING, TITLE STRING, GENRES STRING);
+
+FROM partitiontable
+
+  INSERT INTO TABLE 2009_MOVIES 
+         SELECT partitiontable.movieid, partitiontable.title, partitiontable.genre 
+          WHERE partitiontable.year_partition = 2009
+
+  INSERT INTO TABLE 2010_MOVIES 
+         SELECT partitiontable.movieid, partitiontable.title, partitiontable.genre 
+          WHERE partitiontable.year_partition = 2010
+          
+   INSERT INTO TABLE 2011_MOVIES 
+         SELECT partitiontable.movieid, partitiontable.title, partitiontable.genre 
+          WHERE partitiontable.year_partition = 2011;
+          
